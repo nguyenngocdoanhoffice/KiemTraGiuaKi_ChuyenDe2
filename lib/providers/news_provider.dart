@@ -36,6 +36,8 @@ class NewsProvider extends ChangeNotifier {
       _allPosts = await _apiService.fetchPosts();
       _applySearch();
     } catch (_) {
+      _allPosts = <PostModel>[];
+      _filteredPosts = <PostModel>[];
       _errorMessage = 'Không thể tải danh sách tin tức. Vui lòng thử lại.';
     } finally {
       _isLoading = false;
