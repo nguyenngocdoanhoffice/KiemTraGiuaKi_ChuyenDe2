@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icon(Icons.newspaper, size: 42, color: Colors.white),
                   SizedBox(height: 10),
                   Text(
-                    'News App',
+                    'Ứng dụng Tin tức',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,
@@ -106,40 +106,40 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.home),
-              title: const Text('Home'),
+              title: const Text('Trang chủ'),
               onTap: () => _navigateFromDrawer(const HomeScreen()),
             ),
             ListTile(
               leading: const Icon(Icons.info),
-              title: const Text('About (Giới thiệu)'),
+              title: const Text('Giới thiệu'),
               onTap: () => _navigateFromDrawer(const AboutScreen()),
             ),
             ListTile(
               leading: const Icon(Icons.contact_mail),
-              title: const Text('Contact (Liên hệ)'),
+              title: const Text('Liên hệ'),
               onTap: () => _navigateFromDrawer(const ContactScreen()),
             ),
             ListTile(
               leading: const Icon(Icons.privacy_tip),
-              title: const Text('Policy (Chính sách)'),
+              title: const Text('Chính sách'),
               onTap: () => _navigateFromDrawer(const PolicyScreen()),
             ),
           ],
         ),
       ),
       appBar: AppBar(
-        title: const Text('Personal News'),
+        title: const Text('Tin tức cá nhân'),
         centerTitle: true,
         actions: [
           IconButton(
             onPressed: _loadNews,
             icon: const Icon(Icons.refresh),
-            tooltip: 'Refresh news',
+            tooltip: 'Tải lại tin tức',
           ),
           IconButton(
             onPressed: _openFavorites,
             icon: const Icon(Icons.favorite_outline),
-            tooltip: 'Favorites',
+            tooltip: 'Yêu thích',
           ),
         ],
       ),
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: TextField(
                 onChanged: provider.searchPosts,
                 decoration: InputDecoration(
-                  hintText: 'Search by title...',
+                  hintText: 'Tìm theo tiêu đề...',
                   prefixIcon: const Icon(Icons.search),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -194,14 +194,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: 12),
                       Text(
                         provider.searchQuery.isEmpty
-                            ? 'No news available.'
-                            : 'No result matches your search.',
+                            ? 'Chưa có tin tức nào.'
+                            : 'Không có kết quả phù hợp.',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Pull down to refresh news list.',
+                        'Kéo xuống để cập nhật danh sách tin tức.',
                         style: TextStyle(color: Colors.grey.shade600),
                       ),
                     ],

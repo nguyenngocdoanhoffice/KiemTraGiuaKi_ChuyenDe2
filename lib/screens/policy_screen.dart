@@ -6,11 +6,11 @@ class PolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Policy')),
+      appBar: AppBar(title: const Text('Chính sách')),
       body: const Padding(
         padding: EdgeInsets.all(16),
         child: Text(
-          'This app does not collect user data.',
+          'Ứng dụng này không thu thập dữ liệu người dùng.',
           style: TextStyle(fontSize: 16, height: 1.5),
         ),
       ),

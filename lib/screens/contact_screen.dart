@@ -6,7 +6,7 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Contact')),
+      appBar: AppBar(title: const Text('Liên hệ')),
       body: const Padding(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -14,7 +14,7 @@ class ContactScreen extends StatelessWidget {
           children: [
             Text('Email: newsapp@example.com', style: TextStyle(fontSize: 16)),
             SizedBox(height: 12),
-            Text('Phone: +84 123 456 789', style: TextStyle(fontSize: 16)),
+            Text('Điện thoại: +84 123 456 789', style: TextStyle(fontSize: 16)),
           ],
         ),
       ),

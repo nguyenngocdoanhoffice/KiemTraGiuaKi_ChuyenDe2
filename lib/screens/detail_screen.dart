@@ -13,11 +13,11 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<NewsProvider>();
     final isFavorite = provider.isFavorite(post.id);
-    final dateText = DateFormat('dd MMM yyyy').format(post.publishedAt);
+    final dateText = DateFormat('dd/MM/yyyy').format(post.publishedAt);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News Detail'),
+        title: const Text('Chi tiết tin tức'),
         centerTitle: true,
         actions: [
           IconButton(
@@ -26,7 +26,7 @@ class DetailScreen extends StatelessWidget {
               isFavorite ? Icons.favorite : Icons.favorite_border,
               color: isFavorite ? Colors.redAccent : null,
             ),
-            tooltip: 'Favorite',
+            tooltip: 'Yêu thích',
           ),
         ],
       ),

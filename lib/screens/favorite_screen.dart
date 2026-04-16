@@ -13,7 +13,7 @@ class FavoriteScreen extends StatelessWidget {
     final favorites = provider.favoritePosts;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Favorite News'), centerTitle: true),
+      appBar: AppBar(title: const Text('Tin tức yêu thích'), centerTitle: true),
       body: favorites.isEmpty
           ? Center(
               child: Padding(
@@ -28,12 +28,12 @@ class FavoriteScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'No favorite news yet.',
+                      'Chưa có tin tức yêu thích.',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      'Tap the heart icon in detail screen to add favorites.',
+                      'Nhấn biểu tượng trái tim trong màn hình chi tiết để thêm.',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.grey.shade600),
                     ),

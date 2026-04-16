@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       create: (_) => NewsProvider(apiService: ApiService()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Personal News App',
+        title: 'Ứng dụng Tin tức Cá nhân',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
           useMaterial3: true,
