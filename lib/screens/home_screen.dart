@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/about_screen.dart';
+import 'package:my_app/screens/contact_screen.dart';
 import 'package:my_app/providers/news_provider.dart';
 import 'package:my_app/screens/detail_screen.dart';
 import 'package:my_app/screens/favorite_screen.dart';
+import 'package:my_app/screens/policy_screen.dart';
 import 'package:my_app/widgets/news_card.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +16,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void _navigateFromDrawer(Widget screen) {
+    final navigator = Navigator.of(context);
+    navigator.pop();
+    navigator.push(MaterialPageRoute(builder: (_) => screen));
+  }
+
   @override
   void initState() {
     super.initState();
@@ -73,10 +82,60 @@ class _HomeScreenState extends State<HomeScreen> {
     final provider = context.watch<NewsProvider>();
 
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.indigo),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.newspaper, size: 42, color: Colors.white),
+                  SizedBox(height: 10),
+                  Text(
+                    'News App',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () => _navigateFromDrawer(const HomeScreen()),
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('About (Giới thiệu)'),
+              onTap: () => _navigateFromDrawer(const AboutScreen()),
+            ),
+            ListTile(
+              leading: const Icon(Icons.contact_mail),
+              title: const Text('Contact (Liên hệ)'),
+              onTap: () => _navigateFromDrawer(const ContactScreen()),
+            ),
+            ListTile(
+              leading: const Icon(Icons.privacy_tip),
+              title: const Text('Policy (Chính sách)'),
+              onTap: () => _navigateFromDrawer(const PolicyScreen()),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text('Personal News'),
         centerTitle: true,
         actions: [
+          IconButton(
+            onPressed: _loadNews,
+            icon: const Icon(Icons.refresh),
+            tooltip: 'Refresh news',
+          ),
           IconButton(
             onPressed: _openFavorites,
             icon: const Icon(Icons.favorite_outline),
